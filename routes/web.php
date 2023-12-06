@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Models\Orders;
+use App\Models\Category;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,8 +28,14 @@ Route::get('/users', function () {
     return response()->json(["users"=>$users]);
 });
 
-Route::get('/orders', function () {
-    $orders = Orders::all();
-    
-    return response()->json(["orders" => $orders]);
+// Route::get('/orders', function () {
+//     $orders = Orders::all();
+
+//     return response()->json(["orders" => $orders]);
+// });
+
+Route::get('/category', function () {
+    $category = Category::all();
+
+    return response()->json(["category" => $category]);
 });
