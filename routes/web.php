@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Models\Orders;
@@ -34,8 +35,17 @@ Route::get('/users', function () {
 //     return response()->json(["orders" => $orders]);
 // });
 
-Route::get('/category', function () {
-    $category = Category::all();
+// Route::get('/category', function () {
+//     $category = Category::all();
 
-    return response()->json(["category" => $category]);
-});
+//     return response()->json(["category" => $category]);
+// });
+
+// Route::get('/category', function () {
+//     $categories = Category::all();
+
+//     return view("index",compact("categories"));
+//     //->json(["category" => $category]);
+// });
+
+Route::get('/products', [ProductsController::class,'index']); 
