@@ -41,11 +41,13 @@ Route::get('/users', function () {
 //     return response()->json(["category" => $category]);
 // });
 
-// Route::get('/category', function () {
-//     $categories = Category::all();
+Route::get('/category', function () {
+    $categories = Category::all();
 
-//     return view("index",compact("categories"));
-//     //->json(["category" => $category]);
-// });
+    return view("index",compact("categories"));
+    //->json(["category" => $category]);
+});
 
-Route::get('/products', [ProductsController::class,'index']); 
+// Route::get('/products', [ProductsController::class,'index'])->name('products.index');; 
+
+Route::resource('/products',ProductsController::class);

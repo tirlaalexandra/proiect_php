@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Products;
 use Illuminate\Http\Request;
 
 class ProductsController extends Controller
@@ -12,7 +13,8 @@ class ProductsController extends Controller
     public function index()
     {
         //
-        dd("index");
+        $products = Products::all();
+        return view('products.index', compact('products'));
     }
 
     /**
@@ -20,7 +22,7 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        //
+        return view('products.create');
     }
 
     /**
@@ -28,31 +30,38 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       // dd($request->all());
+        Products::create($request->all());
+        return redirect()->route('products.index')
+->with('succes','produsul ac fost creat cu succes!');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show( $id)
     {
-        //
+        $product = Products::findOrFail($id);
+        return view('products.show',compact('product'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Request $request,Products $product)
     {
-        //
+        $product->update($request->all());
+        return view('products.edit', compact('product'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request,Products $product)
     {
-        //
+        $product -> update($request->all());
+        return redirect()->route('products.index')
+            ->with('succes', 'produsul ac fost modificat cu succes!');
     }
 
     /**
