@@ -17,10 +17,10 @@ use App\Models\Category;
 |
 */
 
-// Route::get('/', function () {
-//    // return view('welcome');
-//     return view('paginamea');
-// });
+Route::get('/', function () {
+    return view('welcome');
+   
+});
 
 Route::get('/users', function () {
    $users=User::all();

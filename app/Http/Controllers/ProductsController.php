@@ -11,9 +11,11 @@ class ProductsController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        //
+    {      
         $products = Products::all();
+//afisare produse sterse
+        //$products = Products::onlyTrashed()->get();
+       // dd($products);
         return view('products.index', compact('products'));
     }
 
@@ -67,8 +69,10 @@ class ProductsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Products $product)
     {
-        //
+         $product -> delete();
+        return redirect()->route('products.index')
+            ->with('succes', 'produsul a fost sters cu succes!');
     }
 }

@@ -18,6 +18,10 @@
 <label for="price">Price</label>
 <input type="text" class="form-controler" name="price" id="price">
 </div>
-<button type="submit" class="btn btn-primary">Submit</button>
+<div class="form-group">
+<label for="id_category">Category</label>
+<input type="text" class="form-controler" name="id_category" id="id_category">
+</div>
+<button type="submit" class="btn btn-primary">Create</button>
 </form>
 </div>
