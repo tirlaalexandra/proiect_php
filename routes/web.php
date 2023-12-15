@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
@@ -51,3 +53,5 @@ Route::get('/category', function () {
 // Route::get('/products', [ProductsController::class,'index'])->name('products.index');; 
 
 Route::resource('/products',ProductsController::class);
+Route::resource('/category', CategoryController::class);
+Route::resource('/orders', OrdersController::class);

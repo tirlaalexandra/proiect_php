@@ -1,9 +1,13 @@
 <div>
     
     <a href="{{ route('products.index') }}" class="btn btn-primary mb-3">
-        Produse</a>
+        Products</a>
 </div>
 <div>
-    Categorii
+    <a href="{{ route('category.index') }}" class="btn btn-primary mb-3">
+        Categories</a>
 </div>
-<div>Comenzi</div>
+<div>
+    <a href="{{ route('orders.index') }}" class="btn btn-primary mb-3">
+        Orders</a>
+</div>
